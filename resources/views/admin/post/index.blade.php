@@ -36,8 +36,8 @@
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Название</th>
-                    <th>Содержание</th>
+                    <th>Заголовок</th>
+                    <th>Категория</th>
                     <th>Created at</th>
                     <th>Updated at</th>
                     <th>Действие</th>
@@ -48,7 +48,7 @@
                   <tr>
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
-                    <td>{{$post->content}}</td>
+                    <td>{{$post->category->title}}</td>
                     <td>{{$post->created_at}}</td>
                     <td>{{$post->updated_at}}</td>
                     <td>
