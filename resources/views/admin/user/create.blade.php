@@ -42,13 +42,15 @@
               <div class="text-danger">Поле не заполнено</div>
               @enderror
             </div>
-            <div class="form-group">
+            <!-- 
+              <div class="form-group">
               <label for="exampleInputEmail1">Password</label>
               <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Пароль">
               @error('password')
               <div class="text-danger">Поле не заполнено</div>
               @enderror
-            </div>
+            </div> 
+          -->
 
             <div class="form-group">
               <label>Выберите роль</label>

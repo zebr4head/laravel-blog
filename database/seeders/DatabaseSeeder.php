@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,18 +20,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
+        // default root user
         User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.admin',
+            'name' => 'ROOT',
+            'email' => 'root@root',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
             'role' => 0,
         ]);
 
         Category::factory(10)->create();
+        User::factory(10)->create();
         $tags = Tag::factory(20)->create();
         $posts = Post::factory(100)->create();
-        User::factory(10)->create();
 
         foreach($posts as $post){
             $tagsIds = $tags->random(5)->pluck('id');

@@ -21,11 +21,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 
 // Admin panel routes
-Route::group(['namespace ' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['namespace ' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Main'], function () {
         Route::get('/', IndexController::class)->name('admin.index');
     });
-
     // Category routes
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Category', 'prefix' => 'categories'], function () {
         Route::get('/', IndexController::class)->name('admin.category.index');
@@ -56,7 +55,6 @@ Route::group(['namespace ' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',
         Route::patch('/{post}', UpdateController::class)->name('admin.post.update');
         Route::delete('/{post}', DeleteController::class)->name('admin.post.delete');
     });
-
     // User route 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\User', 'prefix' => 'users'], function () {
         Route::get('/', IndexController::class)->name('admin.user.index');
@@ -69,6 +67,6 @@ Route::group(['namespace ' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',
     });
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
