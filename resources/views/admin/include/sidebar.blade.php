@@ -21,7 +21,15 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Главная
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">Блог</li>
 
                 <li class="nav-item">
                     <a href="{{ route('admin.post.index') }}" class="nav-link">
@@ -50,8 +58,18 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-header">Управление</li>
 
                 <li class="nav-item">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Пользователи
+                        </p>
+                    </a>
+                </li>
+
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-envelope"></i>
                         <p>
@@ -79,7 +97,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

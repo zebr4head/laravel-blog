@@ -26,12 +26,15 @@
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-12">
+        <a href="{{ route('admin.category.index') }}" class="btn btn-danger mb-3"><< Назад</a>
           <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="exampleInputEmail1">Заголовок</label>
               <input value="{{ old('title') }}" type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Название поста">
-
+              @error('title')
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
             </div>
             <div class="form-group">
               <label>Выберите категорию</label>
@@ -40,12 +43,15 @@
                 <option value="{{ $category->id }}" {{ $category->id == old('category_id') ? ' selected' : '' }}>{{ $category->title }}</option>
                 @endforeach
               </select>
+              @error('category_id')
+              <div class="text-danger">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="form-group">
               <textarea id="summernote" name="content">{{ old('content') }}</textarea>
               @error('content')
-              <div class="text-danger">Поле не заполнено</div>
+              <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
 
@@ -62,7 +68,7 @@
                 </div>
               </div>
               @error('preview_image')
-              <div class="text-danger">Картинака не добавлена</div>
+              <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
             <!-- Главная картинка -->
@@ -78,7 +84,7 @@
                 </div>
               </div>
               @error('main_image')
-              <div class="text-danger">Картина не добавлена</div>
+              <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
             <div class="form-group">

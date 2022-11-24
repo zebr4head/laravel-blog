@@ -34,7 +34,7 @@
               <label for="exampleInputEmail1">Название</label>
               <input type="text" name="title" class="form-control" id="exampleInputEmail1" value="{{ $post->title }}" placeholder="Название поста">
               @error('title')
-                <div class="text-danger">Поле не заполнено</div>
+              <div class="text-danger">{{ message }}</div>
               @enderror
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
             <div class="form-group">
               <textarea id="summernote" name="content">{{ $post->content }}</textarea>
               @error('content')
-              <div class="text-danger">Поле не заполнено</div>
+              <div class="text-danger">{{ message }}</div>
               @enderror
             </div>
   
@@ -69,7 +69,7 @@
                 </div>
               </div>
               @error('preview_image')
-              <div class="text-danger">Картинака не добавлена</div>
+              <div class="text-danger">{{ message }}</div>
               @enderror
             </div>
             <!-- Главная картинка -->
@@ -88,7 +88,7 @@
                 </div>
               </div>
               @error('main_image')
-              <div class="text-danger">Картина не добавлена</div>
+              <div class="text-danger">{{ message }}</div>
               @enderror
             </div>
             <div class="form-group">

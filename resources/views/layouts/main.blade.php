@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
 </head>
+
 <body>
     <div class="edica-loader"></div>
     <header class="edica-header">
@@ -129,6 +131,12 @@
                     <a href="#!">Privacy & Policy</a>
                     <a href="#!">Terms</a>
                     <a href="#!">Site Map</a>
+
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <input value="Logout" type="submit"></input>
+                    </form>
+
                 </nav>
                 <p class="mb-0">© Edica. 2020 <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights reserved.</p>
             </div>
@@ -142,7 +150,7 @@
         AOS.init({
             duration: 1000
         });
-      </script>
+    </script>
 </body>
 
 </html>
